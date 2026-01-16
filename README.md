@@ -1,45 +1,42 @@
-# 🔐 End-to-End Encrypted Real-Time Chat Backend
+# 🔐 SecureChat Backend
 
-A **security-first, production-style real-time chat backend** built with **Node.js, Express, and Socket.IO**, implementing **true End-to-End Encryption (E2EE)** using **AES-256-GCM + RSA hybrid cryptography**.
+**End-to-End Encrypted Real-Time Chat Backend built with Node.js, Express, and Socket.IO**
 
-> 🔒 Even the backend server **cannot read messages**  
-> ⚡ Messages are delivered in **real time**  
-> 🧠 Designed with **system design & security principles**, not tutorials
+SecureChat is a privacy-focused backend system where **messages remain encrypted end-to-end**, meaning even the server cannot read user messages.  
+This project demonstrates how modern secure chat systems work at a **real-world backend architecture level**.
 
 ---
 
-## 🚀 Features
+## 🚀 Why This Project Exists
 
-### 🔐 End-to-End Encryption (E2EE)
-- AES-256-GCM for message encryption
-- RSA-based key exchange (hybrid encryption)
-- Unique AES key per message
-- Backend stores only encrypted data
-- Database breach ≠ message leak
+Most chat applications store or process messages in plaintext on the server, which means:
 
-### ⚡ Real-Time Messaging
-- Socket.IO (WebSockets)
-- JWT-authenticated socket connections
-- Online / offline user handling
-- Encrypted message relay
-- Offline message persistence
+❌ Server admins can read messages  
+❌ Database breaches expose conversations  
+❌ User privacy is compromised  
 
-### 🟣 Chat UX Features
-- Read receipts (sent → delivered → read)
-- Typing indicators
-- Secure metadata handling (content encrypted, metadata not)
+SecureChat solves this by implementing **Hybrid End-to-End Encryption (AES + RSA)** so that:
 
-### 🛡️ Security-First Backend
-- JWT-based stateless authentication
-- Secure password hashing (bcrypt)
-- Rate-limited login (brute-force protection)
-- Helmet security headers
-- Zero plaintext message exposure
+✅ Messages are encrypted on the client  
+✅ Server only relays encrypted payloads  
+✅ Messages are decrypted only by the receiver  
+✅ Even a compromised database cannot leak message content  
 
-### 🧱 Clean Backend Architecture
-- Modular Express structure
-- Feature-based folders
-- Separation of routes, controllers, sockets, and crypto logic
+This backend is designed to simulate how **secure messaging systems (like Signal/WhatsApp)** work internally.
+
+---
+
+## 🔐 Core Features
+
+- 🔒 **End-to-End Encryption** using AES-256-GCM + RSA (Hybrid Encryption)
+- ⚡ **Real-time messaging** with Socket.IO
+- 🔑 **JWT-based authentication**
+- 🚫 Server never sees plaintext messages
+- 💾 **Offline message storage**
+- 🧱 Clean **Controller–Service architecture**
+- 🔐 Secure password hashing with bcrypt
+- 🛡️ Security middlewares (Helmet, Rate Limiting)
+- 📂 Modular and scalable folder structure
 
 ---
 
@@ -163,3 +160,9 @@ Receiver decrypts message locally
 
 This project is built for **learning, system design demonstration, and portfolio purposes**.  
 While it implements correct cryptographic primitives and secure architectural patterns, advanced production features such as **key rotation, forward secrecy, and multi-device key management** can be added in future iterations.
+
+## 🙌 Author
+
+Built by **Samarth Gupta**.
+
+Backend-focused fresher passionate about system design, security, and scalable APIs.
